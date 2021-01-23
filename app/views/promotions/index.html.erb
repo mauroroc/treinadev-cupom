@@ -1,0 +1,11 @@
+<dl>
+<% @promotions.each do |p| %>
+    <dt>Nome</dt>
+    <dd><%= p.name %></dd>
+    <dt>Descrição</dt>
+    <dd><%= p.description %></dd>
+    <dt>Desconto</dt>
+    <dd><%= number_to_percentage(p.discount_rate, precision:2, separator:',') %></dd>
+    <hr>
+<% end %>
+</dl>
