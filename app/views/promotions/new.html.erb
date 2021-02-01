@@ -1,6 +1,9 @@
 <h1>Nova Promoção</h1>
-
-<%=form_with(model: Promotion.new) do |f| %>
+<% if @promotion.errors.any? %>
+   <p>não foi possível criar a promoção</p> 
+   <p>deve ser único</p> 
+<% end %>
+<%=form_with(model: @promotion) do |f| %>
     <%= f.label :name, 'Nome' %>
     <%= f.text_field :name %>
     <%= f.label :description, 'Descrição' %>
