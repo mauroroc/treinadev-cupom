@@ -1,4 +1,6 @@
 class Promotion < ApplicationRecord
+    has_many :coupons
+
     validates :name, presence: true
     validates :code, presence: true
     validates :code, uniqueness: true
