@@ -3,6 +3,7 @@
 <%= link_to "Voltar", :back %>
 
 <dl>
+    <span>Cadastrada por: <%= @promotion.user.email %></span>
     <dt>Nome</dt>
     <dd><%= @promotion.name %></dd>
     <dt>Descrição</dt>
