@@ -26,6 +26,11 @@
     <dt>Status</dt><dd>Promoção Aprovada</dd>
 <% end %>
 
+<h2>Categorias de Produtos</h2>
+<% @promotion.product_categories.each do |item| %>
+    <%= item.name %>
+<% end %>
+
 <%= link_to "Gerar cupons", generate_coupons_promotion_path(@promotion), method: :post %>
 
 <% @promotion.coupons.each do |coupon| %>

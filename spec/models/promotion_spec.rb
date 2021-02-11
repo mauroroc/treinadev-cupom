@@ -72,6 +72,7 @@ describe Promotion do
   end
   
   context '#approve!' do
+    
     it 'should generate a PromotionApproval object' do
       creator = User.create!(email: 'joao@email.com', password: '123456')        
       promotion = Promotion.create!(name: 'Natal', description: 'Promoção de Natal',
@@ -83,6 +84,19 @@ describe Promotion do
       expect(promotion.approved?).to be_truthy
       expect(promotion.approver).to eq approval_user
     end
+
+    it 'should not approve if same user' do
+      creator = User.create!(email: 'joao@email.com', password: '123456')
+      promotion = Promotion.create!(name: 'Natal', description: 'Promoção de Natal',
+                      code: 'NATAL10', discount_rate: 10, coupon_quantity: 100,
+                      expiration_date: '22/12/2033', user: creator)
+
+      promotion.approve!(creator)
+
+      promotion.reload
+      expect(promotion.approved?). to be_falsy
+    end
+
   end
 
 end

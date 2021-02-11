@@ -57,4 +57,6 @@ feature 'Admin approves a promotion' do
         expect(page).to have_content('Promoção Aprovada')
     end
 
+    
+
 end

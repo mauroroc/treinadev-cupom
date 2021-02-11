@@ -16,5 +16,6 @@
     <%= f.text_field :coupon_quantity %>
     <%= f.label :expiration_date, 'Data de término' %>
     <%= f.text_field :expiration_date %>
+    <%= f.collection_check_boxes :product_category_ids, ProductCategory.all, :id, :name %>
     <%= f.submit 'Criar promoção' %>
 <%end %>
